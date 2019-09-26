@@ -259,7 +259,12 @@ PrefabInstance:
     - target: {fileID: 591762426271525133, guid: 4c54e7304878c2044ab1bf8227516db7,
         type: 3}
       propertyPath: m_Name
-      value: "\u7121\u984C_21"
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 591762426539584622, guid: 4c54e7304878c2044ab1bf8227516db7,
+        type: 3}
+      propertyPath: m_Name
+      value: ShotPoint
       objectReference: {fileID: 0}
     - target: {fileID: 591762426271525171, guid: 4c54e7304878c2044ab1bf8227516db7,
         type: 3}
