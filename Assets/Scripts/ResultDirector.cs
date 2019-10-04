@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ResultDirector : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class ResultDirector : MonoBehaviour
 
     [SerializeField] private Sprite[] rankImages;
     [SerializeField] private Image[] playerRankImage;
+    [SerializeField] private RankingAnimation[] RankAnimObj;
     private void MakeRankingDisplay(int[] playerRank)
     {
         for(int i = 0;i < playerRankImage.Length; i++)
@@ -78,6 +80,11 @@ public class ResultDirector : MonoBehaviour
         PlayerRank = PlayerRankCalculate(PlayerData.Instance.PlayerScore);
         //debuglogarray(PlayerRank);
         MakeRankingDisplay(PlayerRank);
+        foreach(var rankAnim in RankAnimObj.Select((value,index) => new {value,index}))
+        {
+            rankAnim.value.InfomationInit(PlayerRank[rankAnim.index]);
+            rankAnim.value.moveSwitchOn();
+        }
     }
 
     // Update is called once per frame
