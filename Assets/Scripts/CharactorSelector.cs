@@ -8,7 +8,7 @@ public class CharactorSelector : MonoBehaviour
     private bool isSelected;
     private bool inputIsEnabled;
     [SerializeField, Range(1, 4)] private int playerID;
-    private int maxPlayerNum;
+    //private int maxPlayerNum;
     private string controllerName;
     private int selectedCharaType;
     [SerializeField] Image CharactorImageUI;
@@ -26,7 +26,7 @@ public class CharactorSelector : MonoBehaviour
         controllerName = "Gamepad" + playerID + "_";
         selectedCharaType = (int)PlayerType.None;
         PlayerCharactorUpdate(selectedCharaType);
-        maxPlayerNum = PlayerData.Instance.MaxPlayerNum;
+        //maxPlayerNum = PlayerData.Instance.MaxPlayerNum;
     }
 
     // Update is called once per frame
@@ -40,7 +40,8 @@ public class CharactorSelector : MonoBehaviour
                 if (Input.GetButtonDown(controllerName + "Function0") || Input.GetKeyDown(KeyCode.M))
                 {
                     isSelected = true;
-                    selectedCharaType = (int)PlayerType.Charactor1;
+                    ///　キャラの色が固定より、設定されたプレイヤーIDを渡す
+                    selectedCharaType = playerID;
                     PlayerCharactorUpdate(selectedCharaType);
                     inputIsEnabled = false;
                     StartCoroutine(WaitInputInterval());
@@ -56,6 +57,8 @@ public class CharactorSelector : MonoBehaviour
                     inputIsEnabled = false;
                     StartCoroutine(WaitInputInterval());
                 }
+                /// not use if charactor color is constant
+                /*
                 else
                 {
                     //float axis = Input.GetAxisRaw(controllerName + "Y");
@@ -77,6 +80,7 @@ public class CharactorSelector : MonoBehaviour
                         StartCoroutine(WaitInputInterval());
                     }
                 }
+                */
             }
         }
     }
