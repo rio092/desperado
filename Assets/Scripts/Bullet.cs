@@ -14,6 +14,11 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        StartCoroutine("Destroy");
+    }
+    IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(this.gameObject);
     }
 }
