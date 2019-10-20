@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDirector : Singleton<GameDirector>
+public class stage : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,4 +15,15 @@ public class GameDirector : Singleton<GameDirector>
     {
         
     }
+    public void OnTriggerExit2D(Collider2D col)
+   {
+        Debug.Log("AAA");
+        if (col.gameObject.tag == "Player")
+        {
+            Destroy(col.gameObject);
+            Debug.Log("CCC");
+        }
+
+    }
 }
+
