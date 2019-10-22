@@ -14,6 +14,7 @@ public class CharactorSelectDirector : MonoBehaviour
     {
         playerdata = PlayerData.Instance;
         textAnim = startText.GetComponent<Animator>();
+        AudioManager.Instance.PlayBGM(BGMName.Title);
     }
 
     // Update is called once per frame
@@ -28,6 +29,15 @@ public class CharactorSelectDirector : MonoBehaviour
         {
             textAnim.SetBool("IsTextChanging", false);
         }
+        if (Input.GetButtonDown("Start"))
+        {
+            GameStart();
+        }
+        if (Input.GetButtonDown("Option"))
+        {
+            playerdata.SingletonDataReset();
+            BacktoTitle();
+        }
 
     }
 
@@ -37,12 +47,14 @@ public class CharactorSelectDirector : MonoBehaviour
     {
         if(playerdata.participantsNum() >= 2)
         {
+            AudioManager.Instance.StopAllsound();
             SceneManager.LoadScene("MainGame");
         }
     }
 
     public void BacktoTitle()
     {
+        AudioManager.Instance.StopAllsound();
         SceneManager.LoadScene("Title");
     }
 }

@@ -50,23 +50,8 @@ public class ResultDirector : MonoBehaviour
         return playerRank;
     }
 
-    [SerializeField] private Sprite[] rankImages;
-    [SerializeField] private Image[] playerRankImage;
     [SerializeField] private RankingAnimation[] RankAnimObj;
-    private void MakeRankingDisplay(int[] playerRank)
-    {
-        for(int i = 0;i < playerRankImage.Length; i++)
-        {
-            if(playerRank[i] != -1)
-            {
-                playerRankImage[i].sprite = rankImages[playerRank[i]];
-            }
-            else
-            {
-                playerRankImage[i].sprite = rankImages[0];
-            }
-        }
-    }
+
     private void debuglogarray(int[] array)
     {
         for (int i = 0; i < array.Length; i++)
@@ -74,12 +59,12 @@ public class ResultDirector : MonoBehaviour
             Debug.Log((i + 1) + "P = " + array[i] + "位");
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerRank = PlayerRankCalculate(PlayerData.Instance.PlayerScore);
         //debuglogarray(PlayerRank);
-        MakeRankingDisplay(PlayerRank);
         foreach(var rankAnim in RankAnimObj.Select((value,index) => new {value,index}))
         {
             rankAnim.value.InfomationInit(PlayerRank[rankAnim.index]);
