@@ -17,6 +17,7 @@ public class TitleDirector : MonoBehaviour
     {
         MainMenu.SetActive(true);
         ManualMenu.SetActive(false);
+        AudioManager.Instance.PlayBGM(BGMName.Title);
     }
 
     public void ManualSetOn()
@@ -35,6 +36,7 @@ public class TitleDirector : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.Instance.StopAllsound();
         SceneManager.LoadScene("PlayerSelect");
     }
 

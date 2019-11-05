@@ -13,12 +13,10 @@ public class RankingAnimation : MonoBehaviour
     private Vector2 goalPosition;
     private float moveRatio;
     private bool MoveOn = false;
-    [SerializeField] private Image myRankImage;
+    [SerializeField] CharaRankAnimation myCharaRankAnim;
     // Start is called before the first frame update
     void Start()
     {
-        //debug
-        //InfomationInit(rank);
     }
 
     // Update is called once per frame
@@ -40,7 +38,8 @@ public class RankingAnimation : MonoBehaviour
         if(moveRatio >= 1)
         {
             MoveOn = false;
-            myRankImage.gameObject.SetActive(true);
+            myCharaRankAnim.MyRank = rank;
+            myCharaRankAnim.RankingAnimationOn();
             return;
         }
         Vector2 moveValue = Vector2.Lerp(startPosition, goalPosition, moveRatio);
@@ -49,13 +48,12 @@ public class RankingAnimation : MonoBehaviour
 
     public void InfomationInit(int myRank)
     {
-        myRankImage.gameObject.SetActive(false);
         startPosition = transform.position;
         rank = myRank;
         moveRatio = 0;
         if(rank != -1)
         {
-            float verticalValiation = rankingVertivalDiferrence[rank];
+            float verticalValiation = rankingVertivalDiferrence[rank-1];
             float goalPositionY = startPosition.y + verticalValiation;
             goalPosition = new Vector2(startPosition.x, goalPositionY);
         }

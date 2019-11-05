@@ -994,7 +994,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "START\nPress \u25CB"
+  m_Text: 'START
+
+    Press [START]'
 --- !u!222 &1716565112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1373,7 +1375,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -255, y: -175}
-  m_SizeDelta: {x: 200, y: 100}
+  m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131900598
 MonoBehaviour:
@@ -1408,7 +1410,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "BACK\nPress \xD7"
+  m_Text: 'BACK
+
+    Press [SELECT]'
 --- !u!222 &2131900599
 CanvasRenderer:
   m_ObjectHideFlags: 0

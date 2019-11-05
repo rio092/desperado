@@ -52,19 +52,26 @@ public class PlayerData : Singleton<PlayerData>
         }
     }
 
+    public void SingletonDataReset()
+    {
+        PlayerTypesInit();
+        PlayerScoreInit();
+    }
     private new void Awake()
     {
         base.Awake();
         PlayerTypesInit();
         PlayerScoreInit();
+        //↓for debug
         PlayerScore = new int[4] { 13, 22, 13, 2 };
         PlayerTypes = new PlayerType[4]
         {
             PlayerType.Charactor1,
-            PlayerType.Charactor1,
-            PlayerType.Charactor1,
-            PlayerType.None
+            PlayerType.Charactor2,
+            PlayerType.Charactor3,
+            PlayerType.Charactor4,
         };
+        //↑for debug
     }
 
     // Start is called before the first frame update
