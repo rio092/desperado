@@ -63,7 +63,7 @@ public class PlayerData : Singleton<PlayerData>
         PlayerTypesInit();
         PlayerScoreInit();
         //↓for debug
-        PlayerScore = new int[4] { 13, 22, 13, 2 };
+    //    PlayerScore = new int[4] { 13, 22, 13, 2 };
         PlayerTypes = new PlayerType[4]
         {
             PlayerType.Charactor1,

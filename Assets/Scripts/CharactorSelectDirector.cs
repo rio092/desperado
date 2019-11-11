@@ -29,7 +29,7 @@ public class CharactorSelectDirector : MonoBehaviour
         {
             textAnim.SetBool("IsTextChanging", false);
         }
-        if (Input.GetButtonDown("Start"))
+        if (Input.GetButtonDown("Start") || Input.GetKeyDown(KeyCode.A))
         {
             GameStart();
         }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7932833869450657255}
   - component: {fileID: 1098021829474783332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040717882465659095}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5124544665322873980}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &1098021829474783332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89346b7d237b8eb45ac960559cab8d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  X: 0
+  Y: 1
   playerID: 2
 --- !u!1 &8819761561413937421
 GameObject:
@@ -55,9 +57,10 @@ GameObject:
   - component: {fileID: 5124544665322873980}
   - component: {fileID: 1126800746094454052}
   - component: {fileID: 7960685498660880481}
-  - component: {fileID: 3343514309830324592}
   - component: {fileID: 7826374811418481179}
-  m_Layer: 0
+  - component: {fileID: 782209242612945393}
+  - component: {fileID: 2372392092044363978}
+  m_Layer: 9
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -72,8 +75,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8819761561413937421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4, y: 2, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 7932833869450657255}
   m_Father: {fileID: 0}
@@ -116,8 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3218238011947241371, guid: 088a7b90a2f0b1141a8ce9cf438f2539,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbd8106c7b225044aa282ab22df6978c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,22 +151,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3343514309830324592
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8819761561413937421}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.245
 --- !u!114 &7826374811418481179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,5 +167,41 @@ MonoBehaviour:
   speed: 1
   pause: {fileID: 0}
   playerID: 2
-  bullet: {fileID: 6324153027827819645, guid: c7ec30fe0cb172249827b48d1444fc14, type: 3}
+  bullet: {fileID: 4907804411128679431, guid: aaa1b4d2572033e42ad30ed429482a9d, type: 3}
   point: {fileID: 1040717882465659095}
+  shot: {fileID: 1098021829474783332}
+--- !u!95 &782209242612945393
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819761561413937421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad1dfeb05bf365540823878dfba4f106, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &2372392092044363978
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819761561413937421}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1083502, y: -0.2296627}
+  m_Size: {x: 1.997129, y: 3.356521}
+  m_Direction: 0

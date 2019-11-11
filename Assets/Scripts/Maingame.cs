@@ -6,20 +6,22 @@ using UnityEngine.UI;
 
 public class Maingame : MonoBehaviour
 {
-    public Text START; 
+    public Text START;
     public GameObject start;
     public GameObject[] player = new GameObject[4];
-    public PlayerData playerdata;
+  //  public PlayerData playerdata;
     public Stage stage;
-    public Movement movement;
-   private int livingplayer;
-    private int set = 1;
-    public int maxset;
+    public Stageout stageout;
+    public int winner;
     int DeathCount = 0;
+    private Image candy;
+    [SerializeField]
+    private Sprite[] sprite;
 
     // Start is called before the first frame update
     void Start()
     {
+        MakeScore();
         int i = 0;
         while(4 > i)
         {
@@ -30,6 +32,7 @@ public class Maingame : MonoBehaviour
         i++;
         }
         StartCoroutine("TimeStart");
+        AudioManager.Instance.PlayBGM(BGMName.main);
     }
 
     // Update is called once per frame
@@ -47,22 +50,52 @@ public class Maingame : MonoBehaviour
     }
     public void GameSet()
     {
+        winner = stage.winner - stageout.winner;
+        Debug.Log(winner + "winner");
         DeathCount++;
         Debug.Log(DeathCount);
-        if (DeathCount >= playerdata.participantsNum() - 1)
+        if (winner >= 0)
         {
-            StartCoroutine("End");   
+            
+            if (DeathCount >= PlayerData.Instance.participantsNum() - 1)
+            {
+                PlayerData.Instance.PlayerScore[winner]++;
+                candy = GameObject.Find("candy" + (winner * 2)).GetComponent<Image>();
+                    candy.sprite = sprite[winner];
+
+                StartCoroutine("End");
+            }
         }
     }
-    IEnumerator End() {
-        yield return new WaitForSeconds(1);
-        if (set < maxset)
+    IEnumerator End() { 
+        player[winner].GetComponent<Rigidbody2D>().velocity =new Vector2 (0, 0);
+        if (winner >= 0)
         {
+            if (PlayerData.Instance.PlayerScore[winner] < 2)
+            {
+                yield return new WaitForSeconds(1);
+                AudioManager.Instance.StopAllsound();
+                SceneManager.LoadScene("MainGame");
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                AudioManager.Instance.StopAllsound();
+                SceneManager.LoadScene("Result");
+            }
+        }
+        else {
+            yield return new WaitForSeconds(1);
+     //       AudioManager.Instance.StopAllsound();
             SceneManager.LoadScene("MainGame");
         }
-        else
-        {
-            SceneManager.LoadScene("Result");
-        }
+    }
+    void MakeScore() {
+        for (int i = 0; i < 4; i++)
+        { 
+            candy = GameObject.Find("candy" + (i*2)).GetComponent<Image>();
+            if(PlayerData.Instance.PlayerScore[i] == 1)
+            candy.sprite = sprite[i];
+       }
     }
 }

@@ -13,36 +13,91 @@ public class Pause : MonoBehaviour
     private string controller;
     public GameObject pausemenu;
     public int n = 2;
+    float serect=1;
+    public Image restart;
+    public Image title;
+    float count=1.5f/255.0f;
     void Start()
     {
         controllerName = "Gamepad" + playerID + "_";
         pausemenu.SetActive(false);
+        Time.timeScale = 1;
     }
     //controllerName + "Function0"
     void Update()
     {
-        if (Input.GetButtonDown(controllerName + "Function0") ||Input.GetKeyDown("q"))
-        {
 
-                if (is_pause)
+       // Debug.Log((int)Time.realtimeSinceStartup);
+        /*    if (Input.GetButtonDown("Start") ||Input.GetKeyDown("q"))
+            {
+
+                    if (is_pause)
+                    {
+                        Time.timeScale = 1;
+                        pausemenu.SetActive(false);
+                        is_pause = false;
+                    }
+                    else
+                    {
+                        Time.timeScale = 0;
+                        is_pause = true;
+                        pausemenu.SetActive(true);
+                    }
+
+            }
+            if (is_pause)
+            {
+                if (Input.GetButtonDown("Option") || Input.GetKeyDown("e"))
                 {
-                    Time.timeScale = 1;
-                    pausemenu.SetActive(false);
-                    is_pause = false;
+                    SceneManager.LoadScene("Title");
+                }
+            }*/
+        if (is_pause)
+        {
+            float x = Mathf.Round(Input.GetAxis("Horizontal"));
+            if (x != 0) {  serect = x; }
+            if (serect == -1)
+            {
+                restart.color =new Color(255,255,255, 1.0f);
+                if (title.color.a <= 255.0f / 255.0f && title.color.a >= 200.0f / 255.0f)
+                {
+                    title.color -= new Color(0, 0, 0, count);
+                }else{
+                    count *= (-1);
+                    title.color -= new Color(0, 0, 0,5* count);
+                }
+                if (Input.GetButtonDown("Start") || Input.GetKeyDown("e"))
+                {
+                    SceneManager.LoadScene("Title");
+                }
+            }
+            if (serect == 1)
+            {
+                title.color = new Color(255, 255, 255, 1.0f);
+                if (restart.color.a <= 255.0f / 255.0f && restart.color.a >= 200.0f / 255.0f)
+                {
+                    restart.color -= new Color(0, 0, 0, count);
                 }
                 else
                 {
-                    Time.timeScale = 0;
-                    is_pause = true;
-                    pausemenu.SetActive(true);
+                    count *= (-1);
+                    restart.color -= new Color(0, 0, 0, 5 * count);
                 }
-            
+                if (Input.GetButtonDown("Start") || Input.GetKeyDown("e"))
+                {
+                        Time.timeScale = 1;
+                    pausemenu.SetActive(false);
+                    is_pause = false;
+                }
+            }
         }
-        if (is_pause)
+        else
         {
-            if (Input.GetButtonDown(controllerName + "Function2") || Input.GetKeyDown("e"))
+            if (Input.GetButtonDown("Start") || Input.GetKeyDown("q"))
             {
-                SceneManager.LoadScene("Title");
+                Time.timeScale = 0;
+                is_pause = true;
+                pausemenu.SetActive(true);
             }
         }
     }

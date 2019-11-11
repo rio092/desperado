@@ -5,6 +5,7 @@ using UnityEngine;
 public enum BGMName
 {
     Title,
+    main,
 }
 
 public enum SEName
