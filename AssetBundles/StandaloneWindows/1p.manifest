@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 3950542670
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fb865166fa451cafce48b42d4a9131fe
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cb3f6df5cbc4a2990c44c2787bc9553a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No1Anim3.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No4Anim1.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/Idle2.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No1Anim2.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No4Anim3.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/Idle3.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No3Anim2.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No2Anim1.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No4Anim2.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No2Anim2.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No1Anim1.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/No3Anim1.png"
+- "Assets/Resources/1P/\u30EA\u30B6\u30EB\u30C8/Idle1.png"
+Dependencies: []

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 using System.Linq;
 
 public enum animationIndex
@@ -52,12 +51,21 @@ public class CharaRankAnimation : MonoBehaviour
 
     private void LoadAnimationSprite()
     {
+        string assetBundlePath = Application.streamingAssetsPath + "/"+myPlayerID + "p";
+        AssetBundle bundle = AssetBundle.LoadFromFile(assetBundlePath);
         sprites = new Sprite[System.Enum.GetValues(typeof(animationIndex)).Length];
-        string basepath = "Assets/Sprite/" + myPlayerID + "P/リザルト/";
+        foreach (var animName in System.Enum.GetNames(typeof(animationIndex)).Select((value, index) => new { value, index }))
+        {
+            sprites[animName.index] = bundle.LoadAsset<Sprite>(animName.value);
+        }
+        /*
+        sprites = new Sprite[System.Enum.GetValues(typeof(animationIndex)).Length];
+        string basepath = myPlayerID + "P/リザルト/";
         foreach (var animName in System.Enum.GetNames(typeof(animationIndex)).Select((value,index) => new {value,index}))
         {
-            sprites[animName.index] = (Sprite)AssetDatabase.LoadAssetAtPath(basepath + animName.value + ".png", typeof(Sprite));
+            sprites[animName.index] = (Sprite)Resources.Load(basepath + animName.value, typeof(Sprite));
         }
+        */
     }
 
     public void RankingAnimationOn()

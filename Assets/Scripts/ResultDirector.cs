@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class ResultDirector : MonoBehaviour
 {
@@ -52,6 +53,9 @@ public class ResultDirector : MonoBehaviour
 
     [SerializeField] private RankingAnimation[] RankAnimObj;
 
+    private float rankingWaitTime = 5.5f;
+    private bool isRankingFinished;
+
     private void debuglogarray(int[] array)
     {
         for (int i = 0; i < array.Length; i++)
@@ -63,6 +67,8 @@ public class ResultDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isRankingFinished = false;
+        StartCoroutine(WaitRanking());
         PlayerRank = PlayerRankCalculate(PlayerData.Instance.PlayerScore);
         //debuglogarray(PlayerRank);
         foreach(var rankAnim in RankAnimObj.Select((value,index) => new {value,index}))
@@ -75,6 +81,18 @@ public class ResultDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isRankingFinished)
+        {
+            if (Input.anyKeyDown)
+            {
+                SceneManager.LoadScene("Title");
+            }
+        }
+    }
 
+    IEnumerator WaitRanking()
+    {
+        yield return new WaitForSeconds(rankingWaitTime);
+        isRankingFinished = true;
     }
 }

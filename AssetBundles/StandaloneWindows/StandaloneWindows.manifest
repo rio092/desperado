@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3529851571
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: desperado
+      Dependencies: {}
+    Info_1:
+      Name: 1p
+      Dependencies: {}
+    Info_2:
+      Name: 2p
+      Dependencies: {}
+    Info_3:
+      Name: 3p
+      Dependencies: {}
+    Info_4:
+      Name: 4p
+      Dependencies: {}
