@@ -26,13 +26,15 @@ public class Stageout : MonoBehaviour
 
         if (col.gameObject.tag == "Player")
         {
+            AudioManager.Instance.PlaySE(SEName.Fall, (float)0.3);
             string winnernum = Regex.Replace(col.gameObject.name, @"[^0-9]", "");
             int death = int.Parse(winnernum);
             winner += death;
-            if (score <= PlayerData.Instance.participantsNum())
+            score++;
+            if (score <= PlayerData.Instance.participantsNum()-1)
             {
-                score++;
                 PlayerData.Instance.PlayerScore[death - 1] += score;
+            //    Debug.Log(PlayerData.Instance.PlayerScore[death - 1]+"PLAYER"+death);
             }
             maingame.GameSet();
         }

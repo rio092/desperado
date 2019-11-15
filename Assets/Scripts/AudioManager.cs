@@ -5,15 +5,17 @@ using UnityEngine;
 public enum BGMName
 {
     Title,
-    main,
+    Main,
 }
 
 public enum SEName
 {
-    shot,
-    fall,
-    drum,
-    fun,
+    Shot,
+    Fall,
+    Drum,
+    Fun,
+    Select,
+    Decition,
 }
 
 public class AudioManager : Singleton<AudioManager>

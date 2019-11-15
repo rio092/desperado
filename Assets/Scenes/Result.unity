@@ -1023,7 +1023,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b9b85a628e0d447a71c61ad6c53135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: 3fe6382d63c3a0b4fa20236fc15471e5, type: 3}
+  - {fileID: 21300000, guid: 0cfe3ab1d6884ce408838d0cc03831da, type: 3}
+  - {fileID: 21300000, guid: 6755b305449ea2548b8a2bdfd66583b5, type: 3}
+  - {fileID: 21300000, guid: 85804ba1ab0c90d42932e4ea2994169f, type: 3}
+  - {fileID: 21300000, guid: 431ae50a6db408149ac5889448380c59, type: 3}
+  - {fileID: 21300000, guid: 329eced024bfa1f4e96a7377d1925f45, type: 3}
+  - {fileID: 21300000, guid: 150e0eae097820c44ba35802e2d3133e, type: 3}
+  - {fileID: 21300000, guid: ae959dcea714a12478a095ad119c263c, type: 3}
+  - {fileID: 21300000, guid: cc3734ed7dd77a1428869dd9f72eda5a, type: 3}
+  - {fileID: 21300000, guid: 2c5e2e96794cc7e4e9d61581945abe22, type: 3}
+  - {fileID: 21300000, guid: 68a9c504299e51b41bdbd55c19a0ca41, type: 3}
+  - {fileID: 21300000, guid: a950a8435062fe0458cb9d616efa7d6f, type: 3}
+  - {fileID: 21300000, guid: 4168d6c87c7468a4c83c5d50a1f1b1fd, type: 3}
   myPlayerID: 2
   mySpriteIndex: 0
 --- !u!95 &872293498
@@ -1074,6 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb12c801e33d6a04ebf0ca7b842bfb12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  set: 0
 --- !u!4 &996295616
 Transform:
   m_ObjectHideFlags: 0
@@ -1695,6 +1709,7 @@ GameObject:
   - component: {fileID: 1911877172}
   - component: {fileID: 1911877171}
   - component: {fileID: 1911877170}
+  - component: {fileID: 1911877173}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1767,6 +1782,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1911877173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911877169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a683a27d584d98449005917bf5b6485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1950809878
 GameObject:
   m_ObjectHideFlags: 0

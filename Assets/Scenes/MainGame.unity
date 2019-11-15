@@ -659,8 +659,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmClips:
   - {fileID: 8300000, guid: 82f38b73c6b3c1943963ba4378c0833a, type: 3}
-  - {fileID: 8300000, guid: d4a87cf7d05bccd478bc2139201bac77, type: 3}
-  seClips: []
+  - {fileID: 8300000, guid: e7bf32bd3dac3de4a800a301d46857f4, type: 3}
+  seClips:
+  - {fileID: 8300000, guid: 881829981f3a25b48b9d82993990ccf1, type: 3}
+  - {fileID: 8300000, guid: 291036187a33b61439643242289ced32, type: 3}
+  - {fileID: 8300000, guid: c6909bfbcfeca2341a0978a93ac7328f, type: 3}
+  - {fileID: 8300000, guid: 374f4fa4fa9d21940b9db3047dd14b72, type: 3}
+  - {fileID: 8300000, guid: 3c2adf381e52bcc48be6cf15ee492bc3, type: 3}
+  - {fileID: 8300000, guid: b733c09ad1338e842944b37002523121, type: 3}
 --- !u!82 &703592683
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1063,7 +1069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &894072169
 MonoBehaviour:
   m_ObjectHideFlags: 0

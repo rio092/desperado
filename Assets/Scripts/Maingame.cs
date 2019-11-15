@@ -22,7 +22,7 @@ public class Maingame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     //   MakeScore();
+        //   MakeScore();
         int i = 0;
         while(4 > i)
         {
@@ -33,7 +33,7 @@ public class Maingame : MonoBehaviour
         i++;
         }
         StartCoroutine("TimeStart");
-        AudioManager.Instance.PlayBGM(BGMName.main);
+        AudioManager.Instance.PlayBGM(BGMName.Main);
     }
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class Maingame : MonoBehaviour
     public void GameSet()
     {
         winner = stage.winner - Stageout.winner;
-     //   Debug.Log(winner + "winner");
+    //    Debug.Log(winner + "winner");
         DeathCount++;
       //  Debug.Log(DeathCount);
         if (winner >= 0)

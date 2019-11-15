@@ -33,7 +33,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
         else
         {
@@ -46,14 +45,14 @@ public class Movement : MonoBehaviour
                     n = 0;
                     
                 }*/
-                // 右・左
+   /*             // 右・左
                 x = Input.GetAxis("Horizontal");
                 // 上・下
-                y = Input.GetAxis("Vertical"); 
-     /*         // 右・左
+                y = Input.GetAxis("Vertical");*/ 
+              // 右・左
               x = Input.GetAxis(controllerName + "X");
               // 上・下
-              y = Input.GetAxis(controllerName + "Y");*/ 
+              y = Input.GetAxis(controllerName + "Y");
               X = (int)System.Math.Round(x);
               Y = (int)System.Math.Round(y);
             Vector2 direction = new Vector2(X, Y);
@@ -118,16 +117,19 @@ public class Movement : MonoBehaviour
             death++;
          //   Debug.Log(death + "death");
             Anim.SetTrigger("OnDestroy");
-            n = 0;
+            n = 2;
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0,-2);
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity / 5;
-            Debug.Log(GetComponent<Rigidbody2D>().velocity.y);
         }
     }
     IEnumerator Stop()
     {
         yield return new WaitForSeconds(1f);
-        n = 1;
+        if (n == 0)
+        {
+            Debug.Log("hukkatu");
+            n = 1;
+        }
         Anim.SetBool("IsKnockback", false);
         yield return new WaitForSeconds(0.3f);
         hit = 0;
@@ -136,12 +138,16 @@ public class Movement : MonoBehaviour
     {
         isRunning = true;
         Anim.SetBool("IsAttack", true);
+        AudioManager.Instance.PlaySE(SEName.Shot, (float)0.5);
         n = 0;
         shot.notshot = false;
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         Instantiate(bullet, point.transform.position, point.transform.rotation);
-        yield return new WaitForSeconds(1.5f);
-        if(hit==0) n = 1;
+        yield return new WaitForSeconds(1f);
+        if (hit == 0 && n == 0)
+        {
+            n = 1;
+        }
         shot.notshot = true;
         Anim.SetBool("IsAttack", false);
         isRunning = false;
@@ -155,7 +161,7 @@ public class Movement : MonoBehaviour
     }
     public void Win() {
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        n = 0;
+        n = 2;
 
     }
     void Fall()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 322649650009590680}
   - component: {fileID: 3752477122359234723}
   m_Layer: 12
-  m_Name: Rdrop
+  m_Name: Bullet1
   m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7698327904dea441aa6a9eaa2b0b882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 30
 --- !u!50 &322649650009590680
 Rigidbody2D:
   serializedVersion: 4
