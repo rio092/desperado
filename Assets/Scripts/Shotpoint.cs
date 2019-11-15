@@ -18,27 +18,30 @@ public class Shotpoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      /*  // 右・左
-        float x = Input.GetAxis("Horizontal");
-        // 上・下
-        float y = Input.GetAxis("Vertical*/
-      // 右・左
-          x = Input.GetAxis(controllerName + "CameraX");
-          // 上・下
-          y = Input.GetAxis(controllerName + "CameraY");
-        Vector3 localPos = transform.localPosition;
-        if (x != 0 || y != 0)
+        if (!Input.GetButtonDown(controllerName + "Function1") || !Input.GetKeyDown(KeyCode.Z))
         {
-            X = Mathf.Sign(x) * Mathf.Sqrt(x * x / (x * x + y * y));
-            Y = Mathf.Sign(y) * Mathf.Sqrt(y * y / (x * x + y * y));
-            //  Debug.Log(X + "と" + Y);
-            localPos.x = ((X * 2)+(1 / 10));
-            localPos.y = (Y * 7/3);
-            transform.localPosition = localPos;
+            /*  // 右・左
+              float x = Input.GetAxis("Horizontal");
+              // 上・下
+              float y = Input.GetAxis("Vertical*/
+            // 右・左
+            x = Input.GetAxis(controllerName + "CameraX");
+            // 上・下
+            y = Input.GetAxis(controllerName + "CameraY");
+            Vector3 localPos = transform.localPosition;
+            if (x != 0 || y != 0)
+            {
+                X = Mathf.Sign(x) * Mathf.Sqrt(x * x / (x * x + y * y));
+                Y = Mathf.Sign(y) * Mathf.Sqrt(y * y / (x * x + y * y));
+                //  Debug.Log(X + "と" + Y);
+                localPos.x = ((X * 2) + (1 / 10));
+                localPos.y = (Y * 7 / 3);
+                transform.localPosition = localPos;
 
-            float rad = Mathf.Atan2(Y, X);
-            float degree = rad * 180 / Mathf.PI - 90;
-            this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, degree);
+                float rad = Mathf.Atan2(Y, X);
+                float degree = rad * 180 / Mathf.PI - 90;
+                this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, degree);
+            }
         }
     }
 }

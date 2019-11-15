@@ -58,15 +58,17 @@ public class Movement : MonoBehaviour
               Y = (int)System.Math.Round(y);
             Vector2 direction = new Vector2(X, Y);
                 GetComponent<Rigidbody2D>().velocity = direction * speed;
-            if (shot.x != 0 || shot.y != 0)
-            {
-                    float a = shot.x;
-                    float b = shot.y;
-                    float ShotX = Mathf.Sign(a) * Mathf.Sqrt(a * a / (a * a + b * b));
-                 float ShotY = Mathf.Sign(b) * Mathf.Sqrt(b * b / (a * a + b * b));
-                Anim.SetFloat("Right", ShotX);
-                Anim.SetFloat("Forward", -ShotY);
-            }
+                /*      if (shot.x != 0 || shot.y != 0)
+                      {
+                              float a = shot.x;
+                              float b = shot.y;
+                              float ShotX = Mathf.Sign(a) * Mathf.Sqrt(a * a / (a * a + b * b));
+                           float ShotY = Mathf.Sign(b) * Mathf.Sqrt(b * b / (a * a + b * b));
+                          Anim.SetFloat("Right", ShotX);
+                          Anim.SetFloat("Forward", -ShotY);
+                      }*/
+                Anim.SetFloat("Right", point.transform.localPosition.x);
+                Anim.SetFloat("Forward", -point.transform.localPosition.y);
                 if (X != 0 || y != 0)
                 {
                     Anim.SetBool("IsIdle", false);
@@ -145,6 +147,8 @@ public class Movement : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(4);
+        point.transform.localPosition = new Vector2(0, -7/3);
+        point.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 180);
         n = 1;
     }
     public void Win() {

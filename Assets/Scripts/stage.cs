@@ -30,7 +30,7 @@ public class Stage : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D col)
     {
         
-        if (col.gameObject.tag == "Player")
+    /*    if (col.gameObject.tag == "Player")
         {
             string winnernum = Regex.Replace(col.gameObject.name, @"[^0-9]", "");
             int death = int.Parse(winnernum);
@@ -44,7 +44,7 @@ public class Stage : MonoBehaviour
             }
        //     Destroy(col.gameObject);
             maingame.GameSet();
-        }
+        }*/
     }
     
 }

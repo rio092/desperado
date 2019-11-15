@@ -68,6 +68,7 @@ public class Pause : MonoBehaviour
                 }
                 if (Input.GetButtonDown("Start") || Input.GetKeyDown("e"))
                 {
+                    PlayerData.Instance.SingletonDataReset();
                     SceneManager.LoadScene("Title");
                 }
             }

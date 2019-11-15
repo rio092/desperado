@@ -12,6 +12,7 @@ public class TitleDirector : MonoBehaviour
     [SerializeField] private GameObject ManualSetButton;
     [SerializeField] private GameObject ManualCloseButton;
     [SerializeField] private EventSystem MyEventSystem;
+    private Button button;
     // Start is called before the first frame update
     void Start()
     {

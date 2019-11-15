@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89346b7d237b8eb45ac960559cab8d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 1
+  x: 0
+  y: 0
   playerID: 3
 --- !u!1 &8933608143672305162
 GameObject:
@@ -180,7 +180,7 @@ Animator:
   m_GameObject: {fileID: 8933608143672305162}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e05ad9c1a4582a24292d60cbe4bb6817, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd4eca48becbfbd488a3beb2a20ed83a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

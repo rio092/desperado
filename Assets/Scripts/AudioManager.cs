@@ -10,7 +10,10 @@ public enum BGMName
 
 public enum SEName
 {
-
+    shot,
+    fall,
+    drum,
+    fun,
 }
 
 public class AudioManager : Singleton<AudioManager>
