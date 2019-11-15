@@ -81,10 +81,21 @@ public class ResultDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            foreach(var anim in RankAnimObj)
+            {
+                anim.myCharaRankAnim.AssetBundleInit();
+            }
+            SceneManager.LoadScene("Result");
+        }
+#endif
         if (isRankingFinished)
         {
             if (Input.anyKeyDown)
             {
+                PlayerData.Instance.SingletonDataReset();
                 SceneManager.LoadScene("Title");
             }
         }

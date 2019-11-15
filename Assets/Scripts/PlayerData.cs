@@ -62,8 +62,9 @@ public class PlayerData : Singleton<PlayerData>
         base.Awake();
         PlayerTypesInit();
         PlayerScoreInit();
+#if UNITY_EDITOR
         //↓for debug
-    //    PlayerScore = new int[4] { 13, 22, 13, 2 };
+        PlayerScore = new int[4] { 13, 22, 13, 2 };
         PlayerTypes = new PlayerType[4]
         {
             PlayerType.Charactor1,
@@ -72,6 +73,7 @@ public class PlayerData : Singleton<PlayerData>
             PlayerType.Charactor4,
         };
         //↑for debug
+#endif
     }
 
     // Start is called before the first frame update
