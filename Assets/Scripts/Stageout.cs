@@ -7,11 +7,13 @@ public class Stageout : MonoBehaviour
 {
     public Maingame maingame;
     public Stage stage;
-    public int winner = 0;
+    public static int winner = 0;
+    public static int score;
     // Start is called before the first frame update
     void Start()
     {
-        
+        winner = 0;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -24,12 +26,15 @@ public class Stageout : MonoBehaviour
 
         if (col.gameObject.tag == "Player")
         {
-     /*       string winnernum = Regex.Replace(col.gameObject.name, @"[^0-9]", "");
+            string winnernum = Regex.Replace(col.gameObject.name, @"[^0-9]", "");
             int death = int.Parse(winnernum);
             winner += death;
-            */
-            Destroy(col.gameObject);
-          //  maingame.GameSet();
+            if (score <= PlayerData.Instance.participantsNum())
+            {
+                score++;
+                PlayerData.Instance.PlayerScore[death - 1] += score;
+            }
+            maingame.GameSet();
         }
     }
 

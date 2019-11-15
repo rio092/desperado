@@ -13,6 +13,7 @@ public enum PlayerType
 
 public class PlayerData : Singleton<PlayerData>
 {
+    public int set =0;
     private const int maxPlayerNum = 4;
     public int MaxPlayerNum
     {

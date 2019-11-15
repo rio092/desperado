@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     int X, Y;
+    static int death=0;
     bool isRunning = false;
     public  int n;
     public static float x;
@@ -23,6 +24,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        death = 0;
         n = 0;
         controllerName = "Gamepad" + playerID + "_";
         StartCoroutine("Wait");
@@ -36,36 +38,45 @@ public class Movement : MonoBehaviour
         else
         {
         this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-        //  Debug.Log("a" + n);
         if (n == 1)
             {
-            Debug.Log("b" + n);
-            // 右・左
-           x = Input.GetAxis("Horizontal");
+          /*      if (death >= PlayerData.Instance.participantsNum() - 1)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                    n = 0;
+                    
+                }*/
+                // 右・左
+                x = Input.GetAxis("Horizontal");
                 // 上・下
                 y = Input.GetAxis("Vertical"); 
-       /*        // 右・左
+     /*         // 右・左
               x = Input.GetAxis(controllerName + "X");
               // 上・下
-              y = Input.GetAxis(controllerName + "Y"); */
+              y = Input.GetAxis(controllerName + "Y");*/ 
               X = (int)System.Math.Round(x);
               Y = (int)System.Math.Round(y);
             Vector2 direction = new Vector2(X, Y);
                 GetComponent<Rigidbody2D>().velocity = direction * speed;
-            if (shot.x != 0 || shot.x != 0)
+            if (shot.x != 0 || shot.y != 0)
             {
                     float a = shot.x;
                     float b = shot.y;
                     float ShotX = Mathf.Sign(a) * Mathf.Sqrt(a * a / (a * a + b * b));
                  float ShotY = Mathf.Sign(b) * Mathf.Sqrt(b * b / (a * a + b * b));
-                    Anim.SetBool("IsIdle", false);
-                Anim.SetBool("IsRun", true);
                 Anim.SetFloat("Right", ShotX);
                 Anim.SetFloat("Forward", -ShotY);
-            }else {
-                Anim.SetBool("IsRun", false);
-                Anim.SetBool("IsIdle", true);
             }
+                if (X != 0 || y != 0)
+                {
+                    Anim.SetBool("IsIdle", false);
+                    Anim.SetBool("IsRun", true);
+                }
+                else
+                {
+                    Anim.SetBool("IsRun", false);
+                    Anim.SetBool("IsIdle", true);
+                }
 
                 if (Input.GetButtonDown(controllerName + "Function1") || Input.GetKeyDown(KeyCode.Z))
                 {
@@ -100,6 +111,16 @@ public class Movement : MonoBehaviour
                 point.transform.rotation = Quaternion.Euler(0.0f, 0.0f, degree);
             }
         }
+        if (col.gameObject.tag == "stageout")
+        {
+            death++;
+         //   Debug.Log(death + "death");
+            Anim.SetTrigger("OnDestroy");
+            n = 0;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0,-2);
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity / 5;
+            Debug.Log(GetComponent<Rigidbody2D>().velocity.y);
+        }
     }
     IEnumerator Stop()
     {
@@ -125,5 +146,14 @@ public class Movement : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         n = 1;
+    }
+    public void Win() {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        n = 0;
+
+    }
+    void Fall()
+    {
+        Destroy(this.gameObject);
     }
 }

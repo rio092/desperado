@@ -17,11 +17,12 @@ public class Maingame : MonoBehaviour
     private Image candy;
     [SerializeField]
     private Sprite[] sprite;
+    public int maxset;
 
     // Start is called before the first frame update
     void Start()
     {
-        MakeScore();
+     //   MakeScore();
         int i = 0;
         while(4 > i)
         {
@@ -50,18 +51,18 @@ public class Maingame : MonoBehaviour
     }
     public void GameSet()
     {
-        winner = stage.winner - stageout.winner;
-        Debug.Log(winner + "winner");
+        winner = stage.winner - Stageout.winner;
+     //   Debug.Log(winner + "winner");
         DeathCount++;
-        Debug.Log(DeathCount);
+      //  Debug.Log(DeathCount);
         if (winner >= 0)
         {
             
             if (DeathCount >= PlayerData.Instance.participantsNum() - 1)
             {
-                PlayerData.Instance.PlayerScore[winner]++;
-                candy = GameObject.Find("candy" + (winner * 2)).GetComponent<Image>();
-                    candy.sprite = sprite[winner];
+                PlayerData.Instance.PlayerScore[winner]+=Stageout.score+1;
+                //       candy = GameObject.Find("candy" + (winner * 2)).GetComponent<Image>();
+                //           candy.sprite = sprite[winner];
 
                 StartCoroutine("End");
             }
@@ -70,8 +71,8 @@ public class Maingame : MonoBehaviour
     IEnumerator End() { 
         player[winner].GetComponent<Rigidbody2D>().velocity =new Vector2 (0, 0);
         if (winner >= 0)
-        {
-            if (PlayerData.Instance.PlayerScore[winner] < 2)
+        {PlayerData.Instance.set += 1;
+            if (PlayerData.Instance.set < maxset)
             {
                 yield return new WaitForSeconds(1);
                 AudioManager.Instance.StopAllsound();
@@ -79,7 +80,8 @@ public class Maingame : MonoBehaviour
             }
             else
             {
-                yield return new WaitForSeconds(1);
+                PlayerData.Instance.set = 0;
+                   yield return new WaitForSeconds(1);
                 AudioManager.Instance.StopAllsound();
                 SceneManager.LoadScene("Result");
             }
