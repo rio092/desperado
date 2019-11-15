@@ -588,6 +588,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameObject
       objectReference: {fileID: 0}
+    - target: {fileID: 6659341744361253023, guid: a3add9ae85f9a034a957af20da6982bf,
+        type: 3}
+      propertyPath: playerdata
+      value: 
+      objectReference: {fileID: 1181753915}
+    - target: {fileID: 6659341744361253023, guid: a3add9ae85f9a034a957af20da6982bf,
+        type: 3}
+      propertyPath: stage
+      value: 
+      objectReference: {fileID: 922431210}
     - target: {fileID: 6659341744361253022, guid: a3add9ae85f9a034a957af20da6982bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -643,16 +653,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6659341744361253023, guid: a3add9ae85f9a034a957af20da6982bf,
-        type: 3}
-      propertyPath: playerdata
-      value: 
-      objectReference: {fileID: 1181753915}
-    - target: {fileID: 6659341744361253023, guid: a3add9ae85f9a034a957af20da6982bf,
-        type: 3}
-      propertyPath: stage
-      value: 
-      objectReference: {fileID: 922431210}
     - target: {fileID: 6659341744361252993, guid: a3add9ae85f9a034a957af20da6982bf,
         type: 3}
       propertyPath: pausemenu
