@@ -24,6 +24,8 @@ public class CharaRankAnimation : MonoBehaviour
     private animationIndex preIndex;
     private Image playerImage;
 
+    private AssetBundle bundle;
+
     private Animator animator;
 
     private void Awake()
@@ -52,20 +54,17 @@ public class CharaRankAnimation : MonoBehaviour
     private void LoadAnimationSprite()
     {
         string assetBundlePath = Application.streamingAssetsPath + "/"+myPlayerID + "p";
-        AssetBundle bundle = AssetBundle.LoadFromFile(assetBundlePath);
+        bundle = AssetBundle.LoadFromFile(assetBundlePath);
         sprites = new Sprite[System.Enum.GetValues(typeof(animationIndex)).Length];
         foreach (var animName in System.Enum.GetNames(typeof(animationIndex)).Select((value, index) => new { value, index }))
         {
             sprites[animName.index] = bundle.LoadAsset<Sprite>(animName.value);
         }
-        /*
-        sprites = new Sprite[System.Enum.GetValues(typeof(animationIndex)).Length];
-        string basepath = myPlayerID + "P/リザルト/";
-        foreach (var animName in System.Enum.GetNames(typeof(animationIndex)).Select((value,index) => new {value,index}))
-        {
-            sprites[animName.index] = (Sprite)Resources.Load(basepath + animName.value, typeof(Sprite));
-        }
-        */
+    }
+    
+    public void AssetBundleInit()
+    {
+        bundle.Unload(true);
     }
 
     public void RankingAnimationOn()

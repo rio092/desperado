@@ -13,7 +13,7 @@ public class RankingAnimation : MonoBehaviour
     private Vector2 goalPosition;
     private float moveRatio;
     private bool MoveOn = false;
-    [SerializeField] CharaRankAnimation myCharaRankAnim;
+    [SerializeField] public CharaRankAnimation myCharaRankAnim;
     // Start is called before the first frame update
     void Start()
     {

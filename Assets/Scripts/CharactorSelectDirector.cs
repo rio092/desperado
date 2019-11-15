@@ -54,6 +54,7 @@ public class CharactorSelectDirector : MonoBehaviour
 
     public void BacktoTitle()
     {
+        PlayerData.Instance.SingletonDataReset();
         AudioManager.Instance.StopAllsound();
         SceneManager.LoadScene("Title");
     }
