@@ -137,10 +137,12 @@ public class Movement : MonoBehaviour
         isRunning = true;
         Anim.SetBool("IsAttack", true);
         n = 0;
+        shot.notshot = false;
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         Instantiate(bullet, point.transform.position, point.transform.rotation);
         yield return new WaitForSeconds(1.5f);
         if(hit==0) n = 1;
+        shot.notshot = true;
         Anim.SetBool("IsAttack", false);
         isRunning = false;
     }

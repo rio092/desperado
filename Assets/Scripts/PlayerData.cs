@@ -57,6 +57,7 @@ public class PlayerData : Singleton<PlayerData>
     {
         PlayerTypesInit();
         PlayerScoreInit();
+        set = 0;
     }
     private new void Awake()
     {

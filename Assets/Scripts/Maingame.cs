@@ -80,7 +80,7 @@ public class Maingame : MonoBehaviour
             }
             else
             {
-                PlayerData.Instance.set = 0;
+               // PlayerData.Instance.set = 0;
                    yield return new WaitForSeconds(1);
                 AudioManager.Instance.StopAllsound();
                 SceneManager.LoadScene("Result");

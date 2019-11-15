@@ -8,17 +8,19 @@ public class Shotpoint : MonoBehaviour
     private float X=0,Y=0;
     [SerializeField, Range(1, 4)] private int playerID;
     private string controllerName;
+    public bool notshot = true;
     // Start is called before the first frame update
     void Start()
     {
         controllerName = "Gamepad" + playerID + "_";
         Y = -1;
+        notshot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Input.GetButtonDown(controllerName + "Function1") || !Input.GetKeyDown(KeyCode.Z))
+        if (notshot)
         {
             /*  // 右・左
               float x = Input.GetAxis("Horizontal");
